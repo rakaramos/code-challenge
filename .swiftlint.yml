@@ -1,0 +1,25 @@
+opt_in_rules:
+  - control_statement
+  - trailing_newline
+  - colon
+  - comma
+  - force_cast
+  - force_unwrapping
+  - private_action
+  - private_outlet
+  - first_where
+  - fallthrough
+  - empty_count
+  - array_init
+  - for_where
+  - overridden_super_call
+  - redundant_nil_coalescing
+  - weak_delegate
+  - yoda_condition
+
+excluded:
+  - Pods
+
+line_length: 300
+
+reporter: "xcode"
