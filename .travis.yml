@@ -1,19 +1,24 @@
 language: objective-c
 osx_image: xcode10
+
 branches:
   only:
   - master
+
 before_install:
-- export SIMULATOR_UDID=`instruments -s devices | grep "iPhone SE (12" | awk -F '[ ]' '{print $4}' | awk -F '[\[]' '{print $2}' | sed 's/.$//'`
-- open -a "simulator" --args -CurrentDeviceUDID $SIMULATOR_UDID & # warm up the simulator
-before_script:
-- gem install bundler
-- gem install xcpretty
+  - gem install bundler
+  - gem install xcpretty
+  - export SIMULATOR_UDID=`instruments -s devices | grep "iPhone SE (12" | awk -F '[ ]' '{print $4}' | awk -F '[\[]' '{print $2}' | sed 's/.$//'`
+  - open -a "simulator" --args -CurrentDeviceUDID $SIMULATOR_UDID & # warm up the simulator
+  - pod install --repo-update
+
 script:
   - ./scripts/build.sh
   - ./scripts/test.sh
+
 after_success:
 - sleep 10 # https://github.com/travis-ci/travis-ci/issues/4725
+
 env:
   global:
     - PROJECT="code-challenge"
