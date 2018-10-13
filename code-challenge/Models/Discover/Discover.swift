@@ -10,7 +10,7 @@ struct Discover: Decodable {
     let poster: String
     let originalLanguage: String
     let originalTitle: String
-    let genre: [Int]
+    let genres: [Int]
     let backdrop: String
     let isAdult: Bool
     let overview: String
@@ -26,7 +26,7 @@ struct Discover: Decodable {
         case poster = "poster_path"
         case originalLanguage = "original_language"
         case originalTitle = "original_title"
-        case genre = "genre_ids"
+        case genres = "genre_ids"
         case backdrop = "backdrop_path"
         case isAdult = "adult"
         case overview
@@ -44,7 +44,7 @@ struct Discover: Decodable {
         poster = try values.decode(String.self, forKey: .poster)
         originalLanguage = try values.decode(String.self, forKey: .originalLanguage)
         originalTitle = try values.decode(String.self, forKey: .originalTitle)
-        genre = try values.decode([Int].self, forKey: .genre)
+        genres = try values.decode([Int].self, forKey: .genres)
         backdrop = try values.decode(String.self, forKey: .backdrop)
         isAdult = try values.decode(Bool.self, forKey: .isAdult)
         overview = try values.decode(String.self, forKey: .overview)
