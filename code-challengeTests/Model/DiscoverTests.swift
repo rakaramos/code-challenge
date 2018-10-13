@@ -4,7 +4,7 @@ import XCTest
 
 class ModelMappingTests: XCTestCase {
 
-    func test_discoverMapping() {
+    func test_discoverMapping() throws {
         let input = """
                     {
                       "page": 1,
@@ -37,7 +37,7 @@ class ModelMappingTests: XCTestCase {
 
         let decoder = JSONDecoder()
 
-        let discover = try! decoder.decode(Product<Discover>.self, from: input)
+        let discover = try decoder.decode(Product<Discover>.self, from: input)
 
         XCTAssertEqual(discover.currentPage, 1)
         XCTAssertEqual(discover.pages, 93)
