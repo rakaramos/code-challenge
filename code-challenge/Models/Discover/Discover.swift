@@ -33,7 +33,7 @@ struct Discover: Decodable {
         case releaseDate = "release_date"
     }
 
-    public init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: Discover.self)
         identifier = try values.decode(Int.self, forKey: .identifier)
         title = try values.decode(String.self, forKey: .title)

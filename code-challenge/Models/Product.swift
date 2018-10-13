@@ -13,7 +13,7 @@ struct Product<Result: Decodable>: Decodable {
         case results
     }
 
-    public init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: Product.self)
         currentPage = try values.decode(Int.self, forKey: .currentPage)
         pages = try values.decode(Int.self, forKey: .pages)
