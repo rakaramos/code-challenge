@@ -16,7 +16,7 @@ struct Discover: Decodable {
     let overview: String
     let releaseDate: String
 
-    enum Discover: String, CodingKey {
+    enum CodingKeys: String, CodingKey {
         case identifier = "id"
         case title
         case votes = "vote_count"
@@ -31,23 +31,5 @@ struct Discover: Decodable {
         case isAdult = "adult"
         case overview
         case releaseDate = "release_date"
-    }
-
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: Discover.self)
-        identifier = try values.decode(Int.self, forKey: .identifier)
-        title = try values.decode(String.self, forKey: .title)
-        votes = try values.decode(Int.self, forKey: .votes)
-        isVideo = try values.decode(Bool.self, forKey: .isVideo)
-        averageVote = try values.decode(Double.self, forKey: .averageVote)
-        popularity = try values.decode(Double.self, forKey: .popularity)
-        poster = try values.decode(String.self, forKey: .poster)
-        originalLanguage = try values.decode(String.self, forKey: .originalLanguage)
-        originalTitle = try values.decode(String.self, forKey: .originalTitle)
-        genres = try values.decode([Int].self, forKey: .genres)
-        backdrop = try values.decode(String.self, forKey: .backdrop)
-        isAdult = try values.decode(Bool.self, forKey: .isAdult)
-        overview = try values.decode(String.self, forKey: .overview)
-        releaseDate = try values.decode(String.self, forKey: .releaseDate)
     }
 }
