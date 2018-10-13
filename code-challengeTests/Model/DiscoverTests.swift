@@ -2,7 +2,6 @@ import XCTest
 
 @testable import code_challenge
 
-// swiftlint:disable line_length function_body_length
 class ModelMappingTests: XCTestCase {
 
     func test_discoverMapping() {
