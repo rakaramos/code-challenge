@@ -5,7 +5,7 @@ struct Discover: Decodable {
     let title: String
     let votes: Int
     let isVideo: Bool
-    let avarageVote: Double
+    let averageVote: Double
     let popularity: Double
     let poster: String
     let originalLanguage: String
@@ -21,7 +21,7 @@ struct Discover: Decodable {
         case title
         case votes = "vote_count"
         case isVideo = "video"
-        case avarageVote = "vote_average"
+        case averageVote = "vote_average"
         case popularity
         case poster = "poster_path"
         case originalLanguage = "original_language"
@@ -39,7 +39,7 @@ struct Discover: Decodable {
         title = try values.decode(String.self, forKey: .title)
         votes = try values.decode(Int.self, forKey: .votes)
         isVideo = try values.decode(Bool.self, forKey: .isVideo)
-        avarageVote = try values.decode(Double.self, forKey: .avarageVote)
+        averageVote = try values.decode(Double.self, forKey: .averageVote)
         popularity = try values.decode(Double.self, forKey: .popularity)
         poster = try values.decode(String.self, forKey: .poster)
         originalLanguage = try values.decode(String.self, forKey: .originalLanguage)
